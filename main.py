@@ -7,6 +7,10 @@ import pygame
 
 
 class GameOfLife:
+    """
+    A class that implements Conway's Game of Life using the Pygame library.
+    """
+
     def __init__(self):
         self.fps = 60
         self.update_frequency = 60
@@ -102,11 +106,10 @@ class GameOfLife:
             if event.type == pygame.KEYDOWN:
                 if event.key == pygame.K_SPACE:
                     self.playing = not self.playing
-                if event.key == pygame.K_c:
+                if event.key == pygame.K_c and not self.playing:
                     self.positions.clear()
-                    self.playing = False
                     self.update_counter = 0
-                if event.key == pygame.K_g and not self.playing:
+                if event.key == pygame.K_r and not self.playing:
                     self.positions = self.generate_random_positions(200)
 
     def run(self):
